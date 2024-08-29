@@ -7,7 +7,11 @@ export class TaskRepository{
 
     async createTask(body: any){
         return await this.prisma.task.create({
-            data: body
+            data: {
+                title: body.title,
+                userId: body.user.id,
+                description: body.description
+            }
         })
     }
 
