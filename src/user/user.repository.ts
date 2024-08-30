@@ -11,4 +11,29 @@ export class UserRepository{
         })
     }
 
+    async findUser(){
+        return await this.prisma.user.findMany()
+    }
+
+    async updateUser(body: any){
+        return await this.prisma.user.update({
+            data: {
+                email: body.email,
+                password: body.password
+            },
+            where: {
+                id: body.id,
+            }
+        })
+
+    }
+
+    async deleteUser(body: any){
+        return await this.prisma.user.delete({
+            where: {
+                id: body.id
+            }
+        })
+    }
+
 }

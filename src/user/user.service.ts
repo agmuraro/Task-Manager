@@ -11,22 +11,17 @@ export class UserService {
         return await this.repository.createUser(body)
     }
 
+    async findUser(){
+      return await this.repository.findUser()
+    }
 
-  
-
-  findAll() {
-    return `This action returns all user`;
+    async updateUser(body: any){
+      return await this.repository.updateUser(body)
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
+  async deleteUser(body: any){
+    return await this.repository.deleteUser(body)
+}
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
-  }
 }
